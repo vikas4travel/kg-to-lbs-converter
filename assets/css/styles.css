@@ -1,0 +1,59 @@
+#klc-widget {
+	border: 1px solid #f0f0f0;
+	border-radius: 5px;
+	display: flex;
+	flex-direction: column;
+	background-color: #fff;
+}
+
+#klc-widget .klc-heading {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	border-bottom: 1px solid #e0e0e0;
+	background-color: #f0f0f0;
+	color: #222;
+	font-size: 14px;
+	height: 50px;
+}
+
+#klc-widget .label {
+	margin-right: 15px;
+	width: 20%;
+	text-align: right;
+}
+
+#klc-widget select, #klc-widget input {
+	height: 35px;
+	border: 1px solid #e0e0e0;
+	font-size: 14px;
+	border-radius: 5px;
+}
+
+#klc-widget input {
+	width: 100px;
+}
+
+
+#klc-widget .submit-button-container {
+	display: flex;
+	justify-content: center;
+	background-color: #f0f0f0;
+	align-items: center;
+	height: 50px;
+}
+#klc-widget .klc-submit-button {
+	height: 35px;
+	border-radius: 5px;
+	font-size: 12px;
+	display: flex;
+	align-items: center;
+}
+
+#klc-widget .klc-message {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	font-size: 14px;
+	height: 40px;
+}
