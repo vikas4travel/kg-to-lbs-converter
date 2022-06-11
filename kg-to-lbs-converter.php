@@ -174,21 +174,11 @@ class KG_To_LBS_converter {
 	}
 
 	public function kg_to_lbs_converter_shortcode( $atts ) {
-		if ( empty( $atts['template'] ) ) {
-			return '';
-		}
-
 		wp_enqueue_style( 'klc-styles', plugin_dir_url( __FILE__ ) . "/assets/css/styles.css" );
 		wp_enqueue_script( 'klc-scripts', plugin_dir_url( __FILE__ ) . "/assets/js/scripts.js", ['jquery'], '', true );
 
 		ob_start();
-
-		if ( 1 === intval( $atts['template'] ) ){
-			require __DIR__ . '/templates/kg-to-lbs-converter-template1.php';
-		} else {
-			require __DIR__ . '/templates/kg-to-lbs-converter-template2.php';
-		}
-
+		require __DIR__ . '/templates/kg-to-lbs-converter-template.php';
 		return ob_get_clean();
 	}
 

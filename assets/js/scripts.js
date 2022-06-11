@@ -1,60 +1,71 @@
-function klc_calculate_to_current_date( random_number ) {
-	var dob_year   = jQuery( '#birth-year-' + random_number ).val();
-	var dob_months = jQuery( '#birth-month-' + random_number ).val();
-	var dob_date   = jQuery( '#birth-date-' + random_number ).val();
+// tonne, kg, gram, milligram, microgram, imperial ton, us ton, stone, pound, ounce
+var conversion_table = [0.001, 1, 1000, 1000000, 1000000000, 0.000984207, 0.00110231, 0.157473, 2.20462, 35.274 ];
 
-	var now      = new Date();
-	var to_date  = now.getDate();
-	var to_month = now.getMonth() + 1;
-	var to_year  = now.getFullYear();
+function klc_reset( random_number ) {
+	jQuery( '#input1-' + random_number ).val('1');
+	jQuery( '#option1-' + random_number ).val('Kilogram');
 
-	if( to_date < dob_date ) {
-		to_date   = parseInt(to_date) + 30;
-		to_month  = parseInt(to_month) - 1;
-		var fdays = to_date - dob_date;
-	} else {
-		var fdays = to_date - dob_date;
-	}
-
-	if ( to_month < dob_months ) {
-		to_month = parseInt( to_month ) + 12;
-		to_year  = to_year - 1;
-		var fmonths = to_month - dob_months;
-	} else {
-		var fmonths = to_month - dob_months;
-	}
-
-	var fyear = to_year - dob_year;
-
-	jQuery( '#klc-message-' + random_number ).html( fyear+' years '+fmonths+' months '+fdays+' days' );
+	jQuery( '#input2-' + random_number ).val('2.20462');
+	jQuery( '#option2-' + random_number ).val('Pound');
 }
 
-function klc_calculate_to_given_date( random_number ) {
-	var dob_year   = jQuery( '#birth-year-' + random_number ).val();
-	var dob_months = jQuery( '#birth-month-' + random_number ).val();
-	var dob_date   = jQuery( '#birth-date-' + random_number ).val();
+function klc_convert( random_number, class_name ) {
 
-	var to_date   = jQuery( '#to-date-' + random_number ).val();
-	var to_month  = jQuery( '#to-month-' + random_number ).val();
-	var to_year   = jQuery( '#to-year-' + random_number ).val();
+	switch ( class_name ) {
+		case 'klc-input1' :
+			update_right_conversion( random_number );
+			break;
 
-	if( to_date < dob_date ) {
-		to_date   = parseInt(to_date) + 30;
-		to_month  = parseInt(to_month) - 1;
-		var fdays = to_date - dob_date;
-	} else {
-		var fdays = to_date - dob_date;
+		case 'klc-option1' :
+			update_right_conversion( random_number );
+			break;
+
+		case 'klc-input2' :
+			update_left_conversion( random_number );
+			break;
+
+		case 'klc-option2' :
+			update_left_conversion( random_number );
+			break;
+	}
+}
+
+function update_right_conversion( random_number ) {
+	var input1  = jQuery( '#input1-' + random_number ).val();
+	var option1 = jQuery( '#option1-' + random_number ).val();
+	var option2 = jQuery( '#option2-' + random_number ).val();
+
+	input1 = Math.abs( jQuery.trim( input1 ) );
+
+	if ( isNaN( input1 ) ) {
+		jQuery( '#klc-message-' + random_number ).html( 'Invalid Input' );
 	}
 
-	if ( to_month < dob_months ) {
-		to_month = parseInt( to_month ) + 12;
-		to_year  = to_year - 1;
-		var fmonths = to_month - dob_months;
-	} else {
-		var fmonths = to_month - dob_months;
+	var left_conversion  = conversion_table[ option1 ];
+	var right_conversion = conversion_table[ option2 ];
+
+	var kg_in_left_input_box      = input1 * ( Math.abs( 1 / left_conversion ) );
+	var output_in_right_input_box = kg_in_left_input_box * right_conversion;
+
+	jQuery( '#input2-' + random_number ).val( output_in_right_input_box );
+}
+
+function update_left_conversion( random_number ) {
+	var input2  = jQuery( '#input2-' + random_number ).val();
+	var option1 = jQuery( '#option1-' + random_number ).val();
+	var option2 = jQuery( '#option2-' + random_number ).val();
+
+	input2 = Math.abs( jQuery.trim( input2 ) );
+
+	if ( isNaN( input2 ) ) {
+		jQuery( '#klc-message-' + random_number ).html( 'Invalid Input' );
 	}
 
-	var fyear = to_year - dob_year;
+	var left_conversion  = conversion_table[ option1 ];
+	var right_conversion = conversion_table[ option2 ];
 
-	jQuery( '#klc-message-' + random_number ).html( fyear+' years '+fmonths+' months '+fdays+' days' );
+	var kg_in_right_input_box    = input2 * ( Math.abs( 1 / right_conversion ) );
+	var output_in_left_input_box = kg_in_right_input_box * left_conversion;
+
+	jQuery( '#input1-' + random_number ).val( output_in_left_input_box );
 }
