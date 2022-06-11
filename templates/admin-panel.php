@@ -1,4 +1,4 @@
-<div class="wrap">
+<div class="wrap klc-wrap">
 	<h2><?php echo __( self::$plugin_name, 'kg-to-lbs-converter' ); ?></h2>
 
 	<div id="klc-message"></div>
@@ -11,13 +11,14 @@
 	<input type="hidden" name="klc_current_tab" id="klc_current_tab" value="1">
 
 	<section class="klc-section">
-		<p>
-			<b><?php echo __( 'Use the following shortcode to display age calculator', 'kg-to-lbs-converter' ); ?></b>
-		</p>
+		<div class="klc-settings">
+			<p>
+				<b><?php echo __( 'Use the following shortcode', 'kg-to-lbs-converter' ); ?></b>
+			</p>
 
-		<input type="text" class="klc-shortcode-input" value="[kg-to-lbs-converter template=1]" id="klc-shortcode1">
-		<button class="button" onclick="klc_copy_shortcode( 'klc-shortcode1' )">Copy Shortcode</button>
-
+			<input type="text" class="klc-shortcode-input" value="[kg-to-lbs-converter template=1]" id="klc-shortcode1">
+			<button class="button" onclick="klc_copy_shortcode( 'klc-shortcode1' )">Copy Shortcode</button>
+		</div>
 	</section>
 
 	<section class="klc-section">
@@ -39,10 +40,9 @@
 	<div id="klc-preview">
 		<h4 class="heading">Preview</h4>
 
-		<div class="klc-container">
-			Preview
-		</div>
-
+		<?php
+		require __DIR__ . '/kg-to-lbs-converter-template.php';
+		?>
 	</div>
 
 	<div id="klc-instructions">

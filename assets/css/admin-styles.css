@@ -1,7 +1,17 @@
+.klc-wrap {
+	background-color: white;
+	padding: 20px;
+}
+
+.klc-settings {
+	border: 1px solid #ddd;
+	padding: 20px;
+	height: 250px;
+}
+
 .klc-about {
 	border: 1px solid #ddd;
 	padding: 20px;
-	background-color: #f0f0f0;
 	height: 250px;
 }
 
@@ -20,4 +30,10 @@
 #klc-instructions li{
 	list-style: square;
 	margin: 0 0 10px 13px;
+}
+
+#klc-preview {
+	max-width: 500px;
+	margin: 10px 0;
+	background-color: white;
 }

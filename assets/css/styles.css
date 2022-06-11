@@ -24,6 +24,10 @@
 	align-items: center;
 }
 
+#klc-widget .klc-equal {
+	padding-left: 78px;
+}
+
 #klc-widget select, #klc-widget input {
 	height: 35px;
 	border: 1px solid #e0e0e0;

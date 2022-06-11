@@ -122,6 +122,7 @@ class KG_To_LBS_converter {
 			wp_enqueue_style('klc_style', plugin_dir_url(__FILE__) . '/assets/css/styles.css');
 			wp_enqueue_style('klc_admin_style', plugin_dir_url(__FILE__) . '/assets/css/admin-styles.css');
 			wp_enqueue_script( 'klc_admin_script', plugin_dir_url(__FILE__) . '/assets/js/admin-scripts.js', array(), '1.0.0', true );
+			wp_enqueue_script( 'klc-scripts', plugin_dir_url( __FILE__ ) . "/assets/js/scripts.js", ['jquery'], '', true );
 		}
 	}
 
