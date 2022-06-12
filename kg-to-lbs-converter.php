@@ -7,7 +7,7 @@
  * Requires at least: 5.2
  * Requires PHP:      5.6
  * Author:            Vikas Sharma
- * Author URI:        https://websolutionideas.com/
+ * Author URI:        https://websolutionideas.com/vikas/
  * License:           GPL v2 or later
  * License URI:       https://www.gnu.org/licenses/gpl-2.0.html
  * Text Domain:       kg-to-lbs-converter
