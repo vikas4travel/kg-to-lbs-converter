@@ -8,7 +8,6 @@ $show_b     = isset( $widget_options['show_b'] ) ? intval( $widget_options['show
 $title      = isset( $widget_options['title'] ) ? $widget_options['title'] : 'KG to LBS Converter';
 $bgcolor    = isset( $widget_options['bgcolor'] ) ? $widget_options['bgcolor'] : '#ffffff';
 $hf_bgcolor = isset( $widget_options['hf_bgcolor'] ) ? $widget_options['hf_bgcolor'] : '#f0f0f0';
-$padding    = isset( $widget_options['padding'] ) ? $widget_options['padding'] : '20';
 ?>
 
 <div class="wrap klc-wrap">
@@ -109,7 +108,7 @@ $padding    = isset( $widget_options['padding'] ) ? $widget_options['padding'] :
 				</div>
 
 				<div class="klc-settings-section">
-					<div class="klc-settings-left"><b>Header/Footer<br/> Background Color</br></div>
+					<div class="klc-settings-left"><b>Header/Footer<br/> Background Color</b></div>
 
 					<div class="klc-settings-right">
 						<input class="widefat" type="text" name="klc_hf_bgcolor" id="klc_hf_bgcolor" value="<?php echo esc_attr( $hf_bgcolor ); ?>" data-default-color="#f0f0f0" />
@@ -152,7 +151,7 @@ $padding    = isset( $widget_options['padding'] ) ? $widget_options['padding'] :
 		<h4 class="heading">Instructions</h4>
 		<ul>
 			<li>In the navigation menu, click "Posts" or "Pages".</li>
-			<li>Edit the Post or Page where you want to add the age calculator widget.</li>
+			<li>Edit the Post or Page where you want to add the converter.</li>
 			<li>Paste the shortcode at your preferred location inside the text editor.</li>
 			<li>Click "Update" to save your changes.</li>
 		</ul>

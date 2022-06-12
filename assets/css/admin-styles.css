@@ -38,7 +38,7 @@
 }
 
 #klc-preview {
-	max-width: 500px;
+	max-width: 600px;
 	margin: 10px 0;
 	background-color: white;
 }
@@ -50,11 +50,6 @@
 	align-items: center;
 	background-color: #f0f0f0;
 	padding: 10px;
-}
-
-.klc-spacer-10 {
-	margin-top: 10px;
-	width: 100%;
 }
 
 .klc-settings-left {

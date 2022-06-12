@@ -5,7 +5,7 @@
  * Description:       Allows website users to convert kilograms to pounds and vice versa.
  * Version:           1.0.1
  * Requires at least: 5.2
- * Requires PHP:      7.2
+ * Requires PHP:      5.6
  * Author:            Vikas Sharma
  * Author URI:        https://websolutionideas.com/
  * License:           GPL v2 or later

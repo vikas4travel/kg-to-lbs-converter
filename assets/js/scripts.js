@@ -40,7 +40,7 @@ function update_right_conversion( random_number ) {
 	input1 = Math.abs( jQuery.trim( input1 ) );
 
 	if ( isNaN( input1 ) ) {
-		jQuery( '#klc-message-' + random_number ).html( 'Invalid Input' );
+		jQuery( '#klc-message-' + random_number ).html( 'Invalid Input' ).addClass('klc-spacer-10');
 		return;
 	}
 	jQuery( '#klc-message-' + random_number ).html( '' );
@@ -62,7 +62,7 @@ function update_left_conversion( random_number ) {
 	input2 = Math.abs( jQuery.trim( input2 ) );
 
 	if ( isNaN( input2 ) ) {
-		jQuery( '#klc-message-' + random_number ).html( 'Invalid Input' );
+		jQuery( '#klc-message-' + random_number ).html( 'Invalid Input<br />' );
 		return;
 	}
 	jQuery( '#klc-message-' + random_number ).html( '' );

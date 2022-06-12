@@ -1,49 +1,52 @@
-=== User Age Calculator ===
+=== KG to LBS Converter ===
 Contributors: vikas4travel
-Tags: User Age Calculator, Age Calculator
+Tags: KG to LBS Converter, Unit Converter, Weight metric to imperial
 Requires at least: 4.9
-Tested up to: 5.8
-Stable tag: 1.0.2
-Requires PHP: 7.2
+Tested up to: 6.0
+Stable tag: 1.0.1
+Requires PHP: 5.6
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
-This plugin allows users to calculate their age from date of birth to current date. It can also be used to calculate age to a given date.
+This plugin allows users to convert weight (Mass) from Metric to Imperial and vice versa. e.g. kilograms to pounds, kilograms to ounces etc.
 
 == Description ==
 
-User age calculator is a simple plugin that allows users to calculate their age from date of birth to current date. It can also be used to calculate age to a given date.
-This plugin can be used for increasing user engagement on your web page.
+KG to LBS Converter  allows users to convert weight (Mass) from Metric to Imperial and vice versa. e.g. kilograms to pounds, kilograms to ounces etc.
+* Various configurations - change background colors, show/hide elements, change layout.
+* Increasing user engagement - can be very helpful in increasing user engagement on your web page.
+* Fully Responsive - works well on most screen sizes.
+* Light weight and fast - This plugin does not load any fancy 3rd party library, Simple javascript with jQuery is used, no ajax requests.
 
 = Privacy notices =
 
 This plugin in itself does not:
 
-* track users.
-* write any personal data to the database.
-* send any data to external servers.
-* use cookies.
+* Track users.
+* Write any personal data to the database. (only the plugin settings will be saved).
+* Send any data to external servers.
+* Use cookies.
 
 = What's Next =
 If you find this plugin useful, please leave a good rating.
-You can also provide us [feedback here](http://caketech.in/provide-feedback/); 
+You can also provide us [feedback here](https://websolutionideas.com/provide-feedback/) 
 
 
 = Credits =
 
-This plugin is created by [Vikas Sharma](https://caketech.in).
+This plugin is created by [Vikas Sharma](https://websolutionideas.com).
 
 == Installation ==
 1. Extract `kg-to-lbs-converter.zip` to your `/wp-content/plugins/` directory.
-2. In the admin panel under plugins activate the plugin - User Age Calculator
+2. In the admin area, in plugins page, activate the plugin - KG to LBS Converter.
 
-If you need any further help, please contact our [support desk](http://caketech.in/support/ "Caketech Support").
+If you need any further help, please contact our [support desk](https://websolutionideas.com/provide-feedback/ "WebSolutionIdeas").
 
 
 == Screenshots ==
 
-1. Calculate Your Age To Current Date
-2. Calculate Your Age To Given Date
-3. Settings Page 1
-4. Settings Page 2
+1. Plugin Settings (Vertical Layout)
+2. Plugin Settings (Horizontal Layout)
+3. Frontend (Horizontal Layout)
+4. Frontend (Vertical Layout)
 
