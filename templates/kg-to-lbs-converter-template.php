@@ -1,10 +1,34 @@
 <?php
-$random_number = rand( 100, 99999 );
+$random_number  = rand( 100, 99999 );
+$widget_options = get_option( 'klc_widget_options' );
+
+$layout  = isset( $widget_options['layout'] ) ? intval( $widget_options['layout'] ) : 1;
+$show_h  = isset( $widget_options['show_h'] ) ? intval( $widget_options['show_h'] ) : 1;
+$show_f  = isset( $widget_options['show_f'] ) ? intval( $widget_options['show_f'] ) : 1;
+$show_b  = isset( $widget_options['show_b'] ) ? intval( $widget_options['show_b'] ) : 1;
+$bgcolor = isset( $widget_options['bgcolor'] ) ? $widget_options['bgcolor'] : '';
+$title   = isset( $widget_options['title'] ) ? $widget_options['title'] : 'KG to LBS Converter';
+
+
+$borders_css    = 2 === $show_b ? "border:none" : '';
+$background_css = ! empty( $bgcolor ) ? "background-color:{$bgcolor}" : '';
+$widget_css     = sprintf( "style=%s;%s;", $background_css, $borders_css );
+
+
+$hf_bgcolor = '';
+if ( ! empty( $widget_options['hf_bgcolor'] ) ) {
+	$hf_bgcolor = sprintf( "style=background-color:%s", $widget_options['hf_bgcolor'] );
+}
 ?>
 
 <p>
-	<div id="klc-widget">
-		<div class="klc-heading">KG to LBS Converter</div>
+	<div id="klc-widget" <?php echo esc_attr( $widget_css )?>>
+
+		<?php
+		if ( 1 === $show_h ) {
+			printf( '<div class="klc-heading" %s>%s</div>', $hf_bgcolor, $title );
+		}
+		?>
 
 		<div class="klc-kg-container">
 
@@ -47,11 +71,15 @@ $random_number = rand( 100, 99999 );
 
 		<div id="klc-message-<?php echo intval( $random_number ); ?>" class="klc-message"></div>
 
-		<div class="submit-button-container">
-			<button class="button" onclick="klc_reset( <?php echo intval( $random_number ); ?> )">Reset</button>
-		</div>
-
-
+		<?php
+		if ( 1 === $show_f ) {
+			?>
+			<div class="submit-button-container" <?php echo esc_attr( $hf_bgcolor ); ?>>
+				<button class="button" onclick="klc_reset( <?php echo intval( $random_number ); ?> )">Reset</button>
+			</div>
+			<?php
+		}
+		?>
 	</div>
 </p>
 

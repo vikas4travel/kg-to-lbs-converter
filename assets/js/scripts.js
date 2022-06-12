@@ -7,6 +7,8 @@ function klc_reset( random_number ) {
 
 	jQuery( '#input2-' + random_number ).val(2.20462);
 	jQuery( '#option2-' + random_number ).val(8);
+
+	jQuery( '#klc-message-' + random_number ).html( '' );
 }
 
 function klc_convert( random_number, class_name ) {
@@ -39,7 +41,9 @@ function update_right_conversion( random_number ) {
 
 	if ( isNaN( input1 ) ) {
 		jQuery( '#klc-message-' + random_number ).html( 'Invalid Input' );
+		return;
 	}
+	jQuery( '#klc-message-' + random_number ).html( '' );
 
 	var left_conversion  = conversion_table[ option1 ];
 	var right_conversion = conversion_table[ option2 ];
@@ -59,7 +63,9 @@ function update_left_conversion( random_number ) {
 
 	if ( isNaN( input2 ) ) {
 		jQuery( '#klc-message-' + random_number ).html( 'Invalid Input' );
+		return;
 	}
+	jQuery( '#klc-message-' + random_number ).html( '' );
 
 	var left_conversion  = conversion_table[ option1 ];
 	var right_conversion = conversion_table[ option2 ];

@@ -28,6 +28,9 @@
 	// Click first Tab
 	$('.nav-tab-active').click();
 
+	$('#klc_bgcolor').wpColorPicker();
+	$('#klc_hf_bgcolor').wpColorPicker();
+
 })( jQuery );
 
 function klc_copy_shortcode( id ) {

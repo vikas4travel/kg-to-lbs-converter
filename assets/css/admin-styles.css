@@ -3,14 +3,19 @@
 	padding: 20px;
 }
 
+.klc-tabs .nav-tab-active {
+	background-color: white;
+}
+
 .klc-settings {
 	border: 1px solid #ddd;
-	padding: 20px;
-	height: 250px;
+	border-top: none;
+	padding: 10px;
 }
 
 .klc-about {
 	border: 1px solid #ddd;
+	border-top: none;
 	padding: 20px;
 	height: 250px;
 }
@@ -36,4 +41,38 @@
 	max-width: 500px;
 	margin: 10px 0;
 	background-color: white;
+}
+
+.klc-settings-section {
+	display: flex;
+	flex-direction: row;
+	margin: 2px 0;
+	align-items: center;
+	background-color: #f0f0f0;
+	padding: 10px;
+}
+
+.klc-spacer-10 {
+	margin-top: 10px;
+	width: 100%;
+}
+
+.klc-settings-left {
+	width: 120px;
+}
+
+.klc-settings-right {
+	display: flex;
+	align-items: flex-end;
+}
+
+.klc-settings-right label {
+	margin-right: 12px;
+}
+
+#klc-reset-button {
+	background-color: #eee;
+	margin-right: 10px;
+	border: 1px solid #ccc;
+	color: #777;
 }

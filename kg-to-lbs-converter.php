@@ -63,14 +63,14 @@ class KG_To_LBS_converter {
 	/**
 	 * Activate the plugin
 	 */
-	public function plugin_activation() : void {
+	public function plugin_activation() {
 		set_transient( 'klc_activation_redirect_transient', true, 30 );
 	}
 
 	/**
 	 * Deactivate the plugin
 	 */
-	public function plugin_deactivation() : void {
+	public function plugin_deactivation() {
 		// To Do:
 	}
 
@@ -121,7 +121,9 @@ class KG_To_LBS_converter {
 
 			wp_enqueue_style('klc_style', plugin_dir_url(__FILE__) . '/assets/css/styles.css');
 			wp_enqueue_style('klc_admin_style', plugin_dir_url(__FILE__) . '/assets/css/admin-styles.css');
-			wp_enqueue_script( 'klc_admin_script', plugin_dir_url(__FILE__) . '/assets/js/admin-scripts.js', array(), '1.0.0', true );
+			wp_enqueue_style( 'wp-color-picker' );
+
+			wp_enqueue_script( 'klc_admin_script', plugin_dir_url(__FILE__) . '/assets/js/admin-scripts.js', ['jquery', 'wp-color-picker'], '1.0.0', true );
 			wp_enqueue_script( 'klc-scripts', plugin_dir_url( __FILE__ ) . "/assets/js/scripts.js", ['jquery'], '', true );
 		}
 	}
@@ -161,7 +163,23 @@ class KG_To_LBS_converter {
 			// Verify the nonce before proceeding.
 			if ( wp_verify_nonce( sanitize_text_field( wp_unslash( $_POST[ self::$plugin_slug . '-nonce' ] ) ), self::$plugin_slug ) ) { // Input var okay.
 
-				// To Do: Update data here
+				$widget_options = [
+					'layout'         => ! empty( $_POST['klc_layout'] ) ? sanitize_text_field( $_POST['klc_layout'] ) : '',
+					'show_h'         => ! empty( $_POST['klc_show_h'] ) ? sanitize_text_field( $_POST['klc_show_h'] ) : '',
+					'show_f'         => ! empty( $_POST['klc_show_f'] ) ? sanitize_text_field( $_POST['klc_show_f'] ) : '',
+					'show_b'         => ! empty( $_POST['klc_show_b'] ) ? sanitize_text_field( $_POST['klc_show_b'] ) : '',
+					'title'          => ! empty( $_POST['klc_title'] ) ? sanitize_text_field( $_POST['klc_title'] ) : '',
+					'bgcolor'        => ! empty( $_POST['klc_bgcolor'] ) ? sanitize_text_field( $_POST['klc_bgcolor'] ) : '',
+					'hf_bgcolor'     => ! empty( $_POST['klc_hf_bgcolor'] ) ? sanitize_text_field( $_POST['klc_hf_bgcolor'] ) : '',
+				];
+
+				if ( ! empty( $_POST['klc-reset-button'] ) ) {
+					// if reset button was clicked.
+					delete_option( 'klc_widget_options' );
+				} else {
+					// save widget settings data.
+					update_option( 'klc_widget_options', $widget_options );
+				}
 
 				echo '<div class="notice notice-success is-dismissible"><p>' . __( 'Success! data saved successfully.', 'kg-to-lbs-converter' ) . '</p></div>';
 
